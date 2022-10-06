@@ -39,17 +39,17 @@ function getKoalas(){
     // making the response the lost of koalas coming in
     console.log('getting koalas response from server', response)
     const listOfKoalas = response;
-    for (let koala of listOfKoalas){
-      $('#viewKoalas').append(`
-      <tr>
-        <td>${koala.name}</td>
-        <td>${koala.age}</td>
-        <td>${koala.gender}</td>
-        <td>${koala.notes}</td>
-        <td>${koala.transfer}</td>
-        </tr>`)
-    }
-    // render(response)
+    // for (let koala of listOfKoalas){
+    //   $('#viewKoalas').append(`
+    //   <tr>
+    //     <td>${koala.name}</td>
+    //     <td>${koala.age}</td>
+    //     <td>${koala.gender}</td>
+    //     <td>${koala.notes}</td>
+    //     <td>${koala.transfer}</td>
+    //     </tr>`)
+    // }
+    render(response)
   })
   .catch ((err) => {
     console.log('error in getting koala table', err);
@@ -61,4 +61,19 @@ function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
  
+}
+
+function render(listOfKoalas){
+  for (let koala of listOfKoalas){
+    console.log('rendering list of koalas...', koala);
+    $('#viewKoalas').append(`
+    <tr>
+      <td>${koala.name}</td>
+      <td>${koala.age}</td>
+      <td>${koala.gender}</td>
+      <td>${koala.notes}</td>
+      <td>${koala.transfer}</td>
+      </tr>`)
+  }
+
 }
