@@ -21,6 +21,10 @@ let transfer = 'FALSE';
 function onTransfer(){
   let koalaID = $(this).data('id');
   console.log(koalaID);
+
+
+
+  
   $.ajax({
     method: 'PUT',
     url: `/koalas/${koalaID}`,
