@@ -17,8 +17,11 @@
     <section id="addKoala">
       <h2>Add Koala</h2>
       <input type="text" id="nameIn" value="" placeholder="Name">
-      <input type="text" id="ageIn" value="" placeholder="Age">
-      <input type="text" id="genderIn" value="" placeholder="Gender">
+      <input type="number" id="ageIn" min="0" value="" placeholder="Age">
+      <input type="radio" id="genderInM" value="male" name="gender">
+      <label for="genderInM">Male</label>
+      <input type="radio" id="genderInF" value="female" name="gender">
+      <label for="genderInF">Female</label>
       <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
       <input type="text" id="notesIn" value="" placeholder="Notes">
       <button type="button" id="addButton">Add Koala</button>
