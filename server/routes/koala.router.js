@@ -31,7 +31,7 @@ koalaRouter.get('/', (req, res) =>{
    
 
     let sqlText = `UPDATE "koalla"
-                    SET "transfer" = TRUE
+                    SET "transfer" = NOT "transfer"
                     WHERE "id" = $1;`;
 
                     
