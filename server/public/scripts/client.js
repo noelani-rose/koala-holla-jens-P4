@@ -37,7 +37,18 @@ function getKoalas(){
   })
   .then((response) => {
     // making the response the lost of koalas coming in
+    console.log('getting koalas response from server', response)
     const listOfKoalas = response;
+    for (let koala of listOfKoalas){
+      $('#viewKoalas').append(`
+      <tr>
+        <td>${koala.name}</td>
+        <td>${koala.age}</td>
+        <td>${koala.gender}</td>
+        <td>${koala.transfer}</td>
+        <td>${koala.notes}</td>
+        </tr>`)
+    }
     // render(response)
   })
   .catch ((err) => {
