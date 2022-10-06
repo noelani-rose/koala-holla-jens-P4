@@ -39,16 +39,7 @@ function getKoalas(){
     // making the response the lost of koalas coming in
     console.log('getting koalas response from server', response)
     const listOfKoalas = response;
-    // for (let koala of listOfKoalas){
-    //   $('#viewKoalas').append(`
-    //   <tr>
-    //     <td>${koala.name}</td>
-    //     <td>${koala.age}</td>
-    //     <td>${koala.gender}</td>
-    //     <td>${koala.notes}</td>
-    //     <td>${koala.transfer}</td>
-    //     </tr>`)
-    // }
+
     render(response)
   })
   .catch ((err) => {
@@ -73,6 +64,8 @@ function render(listOfKoalas){
       <td>${koala.gender}</td>
       <td>${koala.notes}</td>
       <td>${koala.transfer}</td>
+      <td>
+        <button class = "transferBtn" data-id = ${koala.id}>Mark as Transferred</button>
       </tr>`)
   }
 
