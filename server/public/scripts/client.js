@@ -113,6 +113,7 @@ function saveKoala( newKoala ){
 function render(listOfKoalas){
   $('#viewKoalas').empty();
   for (let koala of listOfKoalas){
+    if (koala.transfer == false){
     console.log('rendering list of koalas...', koala);
     console.log('the koala id is...', koala.id)
     $('#viewKoalas').append(`
@@ -124,8 +125,20 @@ function render(listOfKoalas){
       <td>${koala.transfer}</td>
       <td>
         <button class = "transferBtn" data-id = ${koala.id}>Mark as Transferred</button>
+      </td>
+    </tr>`)
+    } else {
+    $('#viewKoalas').append(`
+    <tr>
+      <td>${koala.name}</td>
+      <td>${koala.age}</td>
+      <td>${koala.gender}</td>
+      <td>${koala.notes}</td>
+      <td>${koala.transfer}</td>
+      <td></td>
       </tr>`)
-  }
+    }
+  }  
 
 }
 
