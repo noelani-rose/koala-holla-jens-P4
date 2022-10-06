@@ -1,7 +1,5 @@
 DROP TABLE IF EXISTS "koalla";
 
-
-
 CREATE TABLE "koalla" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(25),
