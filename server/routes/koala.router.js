@@ -9,11 +9,11 @@ const pool = require('../modules/pool');
 
 // GET
 koalaRouter.get('/', (req, res) =>{
-    console.log('in koala router GET koalas');
+    //console.log('in koala router GET koalas');
     pool.query(`SELECT * FROM "koalla";`)
 
         .then((dbRes) =>{
-            console.log('getting koalas result', dbRes.rows);
+           // console.log('getting koalas result', dbRes.rows);
             res.send(dbRes.rows);
         })
         .catch((err) =>{
@@ -27,15 +27,16 @@ koalaRouter.post('/', (req, res) => {
     console.log('req.body', req.body);
 
     const sqlText = `
-    INSERT INTO "koalla" ("name", "age", "gender", "notes")       -- these are placeholders for sqlParams
+    INSERT INTO "koalla" ("name", "age", "gender", "notes", "transfer")       -- these are placeholders for sqlParams
     VALUES
-        ($1, $2, $3, $4);
+        ($1, $2, $3, $4, $5);
     `;
     const sqlParams = [
         req.body.name,        // $1  
         req.body.age,         // $2
         req.body.gender,     // $3
         req.body.notes,       // $4
+        req.body.transfer       // $5
     ];
     console.log('sqlText', sqlText);
 

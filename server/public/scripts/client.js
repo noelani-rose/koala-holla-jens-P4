@@ -9,17 +9,27 @@ $( document ).ready( function(){
 
 }); // end doc ready
 
+let gender = 'M';
+let transfer = 'FALSE';
+
 function setupClickListeners() {
+  $( 'body' ).on( 'click', '#genderInM', function(){gender = 'M';});
+  $( 'body' ).on( 'click', '#genderInF', function(){gender = 'F';});
+  $( 'body' ).on( 'click', '#transferY', function(){transfer = 'TRUE';});
+  $( 'body' ).on( 'click', '#transferN', function(){transfer = 'FALSE';});
+
   $( '#addButton' ).on( 'click', function(){
     console.log( 'in addButton on click' );
     // get user input and put in an object
-    // NOT WORKING YET :(
     // using a test object
+
+    
+    console.log('radio value', $('#genderInM').val());
     let koalaToSend = {
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
-      gender: $('#genderIn').val(),
-      //readyForTransfer: $('#readyForTransferIn').val(),
+      gender: gender,
+      readyForTransfer: transfer,
       notes: $('#notesIn').val()
     };
     // call saveKoala with the new obejct
@@ -58,12 +68,13 @@ function getKoalas(){
 } // end getKoalas
 
 function saveKoala( newKoala ){
+
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
   $.ajax({
     method: 'POST',
-    url: '/koala',
-    data: koalaToSend
+    url: '/koalas/',
+    data: newKoala
   })
     .then(function (response){
       console.log('koala added');
@@ -71,7 +82,7 @@ function saveKoala( newKoala ){
       $('#nameIn').val(''),
       $('#ageIn').val(''),
       $('#notesIn').val('')
-      //getKoalas();
+      getKoalas();
     })
     .catch((err) => {
       console.log('POST error', err);
