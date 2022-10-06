@@ -21,8 +21,7 @@ const koalaRouter = express.Router();
                     SET "transfer" = TRUE
                     WHERE "id" = $1;`;
 
-
-
+                    
         Pool.query(sqlText, [req.params.id])
 
         .then((response)=>{
