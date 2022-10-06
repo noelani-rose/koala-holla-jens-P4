@@ -29,7 +29,7 @@ function setupClickListeners() {
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
       gender: gender,
-      readyForTransfer: transfer,
+      transfer: transfer,
       notes: $('#notesIn').val()
     };
     // call saveKoala with the new obejct

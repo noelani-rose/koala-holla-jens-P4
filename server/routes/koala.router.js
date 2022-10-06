@@ -38,7 +38,7 @@ koalaRouter.post('/', (req, res) => {
         req.body.notes,       // $4
         req.body.transfer       // $5
     ];
-    console.log('sqlText', sqlText);
+    console.log('sqlText', sqlText, req.body.transfer);
 
     pool.query(sqlText, sqlParams)
         .then((dbRes) => {
