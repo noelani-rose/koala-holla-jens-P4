@@ -1,13 +1,41 @@
+const { on } = require("nodemon");
+
 console.log( 'js' );
 
 $( document ).ready( function(){
   console.log( 'JQ' );
   // Establish Click Listeners
   setupClickListeners()
+
+  $('#viewKoalas').on('click', '.transferBtn', onTransfer )
+
+
+
   // load existing koalas on page load
   getKoalas();
 
 }); // end doc ready
+
+
+function onTransfer(){
+  let koalaID = $(this).data('id');
+  
+  $.ajax({
+    method: 'PUT',
+    url: '/koala',
+    data: {readyForTransfer: koalaID} 
+  })
+  .then((response)=>{
+    console.log('mark as ready for transfer', koalaID);
+    getKoalas();
+  })
+  .catch((error)=>{
+    console.log('Transfer status change failed', error);
+  });
+
+};
+
+
 
 function setupClickListeners() {
   $( '#addButton' ).on( 'click', function(){

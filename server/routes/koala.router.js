@@ -1,4 +1,6 @@
+const { Router } = require('express');
 const express = require('express');
+const { Pool } = require('pg');
 const koalaRouter = express.Router();
 const pool = require('../modules/pool');
 
@@ -24,6 +26,27 @@ koalaRouter.get('/', (req, res) =>{
 
 
 // PUT
+
+ koalaRouter.put('/:id', (req, res)=>{
+   
+
+    let sqlText = `UPDATE "koalla"
+                    SET "transfer" = NOT "transfer"
+                    WHERE "id" = $1;`;
+
+                    
+        pool.query(sqlText, [req.params.id])
+
+        .then((response)=>{
+            res.sendStatus(200);
+        })
+        .catch((error)=>{
+            console.log('Error, change to transfer failed', error);
+            res.sendStatus(500);
+        });
+
+ });
+
 
 
 // DELETE
