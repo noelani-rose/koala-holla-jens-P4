@@ -45,8 +45,8 @@ function getKoalas(){
         <td>${koala.name}</td>
         <td>${koala.age}</td>
         <td>${koala.gender}</td>
-        <td>${koala.transfer}</td>
         <td>${koala.notes}</td>
+        <td>${koala.transfer}</td>
         </tr>`)
     }
     // render(response)
