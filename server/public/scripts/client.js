@@ -1,5 +1,3 @@
-const { on } = require("nodemon");
-
 console.log( 'js' );
 
 $( document ).ready( function(){
@@ -19,10 +17,10 @@ $( document ).ready( function(){
 
 function onTransfer(){
   let koalaID = $(this).data('id');
-  
+  console.log(koalaID);
   $.ajax({
     method: 'PUT',
-    url: '/koala',
+    url: `/koala/${koalaID}`,
     data: {readyForTransfer: koalaID} 
   })
   .then((response)=>{
