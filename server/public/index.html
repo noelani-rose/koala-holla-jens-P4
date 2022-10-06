@@ -17,9 +17,18 @@
     <section id="addKoala">
       <h2>Add Koala</h2>
       <input type="text" id="nameIn" value="" placeholder="Name">
-      <input type="text" id="ageIn" value="" placeholder="Age">
-      <input type="text" id="genderIn" value="" placeholder="Gender">
-      <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
+      <input type="number" id="ageIn" min="0" value="" placeholder="Age">
+      <input type="radio" id="genderInM" value="m" name="gender">
+      <label for="genderInM">M</label>
+      <input type="radio" id="genderInF" value="f" name="gender">
+      <label for="genderInF">F</label>
+      <!-- <input type="checkbox" id="readyForTransferIn" value="" placeholder="Transfer"> -->
+      <p>Ready for Transfer?</p>
+      <input type="radio" id="transferY" value="y" name="transfer">
+      <label for="transferY">Y</label>
+      <input type="radio" id="transferN" value="n" name="transfer">
+      <label for="transferN">N</label>      
+      
       <input type="text" id="notesIn" value="" placeholder="Notes">
       <button type="button" id="addButton">Add Koala</button>
     </section>
