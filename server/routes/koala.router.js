@@ -15,31 +15,25 @@ const koalaRouter = express.Router();
 // PUT
 
  Router.put('/:id', (req, res)=>{
-    const readyForTransfer = req.body.transfer;
+   
 
     let sqlText = `UPDATE "koalla"
                     SET "transfer" = TRUE
-                    WHERE "id" = 1;`;
+                    WHERE "id" = $1;`;
 
-        Pool.query(sqlText, [$1])
+
+
+        Pool.query(sqlText, [req.params.id])
 
         .then((response)=>{
             res.sendStatus(200);
         })
         .catch((error)=>{
             console.log('Error, change to transfer failed', error);
+            res.sendStatus(500);
         });
 
-
-
- })
-
-
-
-
-
-
-
+ });
 
 
 
