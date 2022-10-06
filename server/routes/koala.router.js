@@ -1,13 +1,26 @@
 const express = require('express');
 const router = require('../modules/pool');
 const koalaRouter = express.Router();
+const pool = require('../modules/pool');
 
 // DB CONNECTION
 
 
 
 // GET
+koalaRouter.get('/', (req, res) =>{
+    console.log('in koala router GET koalas');
+    pool.query(`SELECT * FROM "koalla";`)
 
+        .then((dbRes) =>{
+            console.log('getting koalas result', dbRes.rows);
+            res.send(dbRes.rows);
+        })
+        .catch((err) =>{
+            console.log('getting koalas failed...', err); 
+            res.sendStatus(500);
+        }); 
+});
 
 // POST
 koalaRouter.post('/', (req, res) => {
