@@ -27,7 +27,7 @@ koalaRouter.get('/', (req, res) =>{
 
 // PUT
 
- Router.put('/:id', (req, res)=>{
+ koalaRouter.put('/:id', (req, res)=>{
    
 
     let sqlText = `UPDATE "koalla"
@@ -35,7 +35,7 @@ koalaRouter.get('/', (req, res) =>{
                     WHERE "id" = $1;`;
 
                     
-        Pool.query(sqlText, [req.params.id])
+        pool.query(sqlText, [req.params.id])
 
         .then((response)=>{
             res.sendStatus(200);
