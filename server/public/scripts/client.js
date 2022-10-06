@@ -83,6 +83,7 @@ function saveKoala( newKoala ){
 }
 
 function render(listOfKoalas){
+  $('#viewKoalas').empty();
   for (let koala of listOfKoalas){
     console.log('rendering list of koalas...', koala);
     console.log('the koala id is...', koala.id)
