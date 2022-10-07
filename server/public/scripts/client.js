@@ -54,7 +54,9 @@ function setupClickListeners() {
       return;
     } else if (isNaN($('#ageIn').val()) || $('#ageIn').val() === ''||
     $('#nameIn').val() === '' ||
-    $('#notesIn').val() === '')
+    $('#notesIn').val() === '') {
+      return;
+    }
     ;
     // get user input and put in an object
     // using a test object
