@@ -44,6 +44,7 @@ function setupClickListeners() {
   $( 'body' ).on( 'click', '#genderInF', function(){gender = 'F';});
   $( 'body' ).on( 'click', '#transferY', function(){transfer = 'TRUE';});
   $( 'body' ).on( 'click', '#transferN', function(){transfer = 'FALSE';});
+  $( 'body' ).on('click', '.deleteBtn', deleteKoala);
 
 
   $( '#addButton' ).on('click', function(){
@@ -120,6 +121,24 @@ function saveKoala( newKoala ){
 } // end saveKoala
 
 
+function deleteKoala(){
+  console.log('in delete koala function')
+  let koalaDelete = $(this).data('id');
+
+  $.ajax({
+    method: 'DELETE',
+    url: `/koalas/${koalaDelete}`
+  })
+    .then((res) =>{
+      console.log('the koala was deleted');
+      getKoalas();
+    })
+    .catch((err) => {
+      console.log('error in deleting koala', err);
+    })
+} // end of delete koala function
+
+
 
 function render(listOfKoalas){
   $('#viewKoalas').empty();
@@ -137,6 +156,9 @@ function render(listOfKoalas){
       <td>
         <button class = "transferBtn" data-id = ${koala.id}>Mark as Transferred</button>
       </td>
+      <td>
+        <button class = "deleteBtn" data-id = ${koala.id}>Delete</button>
+      </td>
     </tr>`)
     } else {
     $('#viewKoalas').append(`
@@ -146,8 +168,10 @@ function render(listOfKoalas){
       <td>${koala.gender}</td>
       <td>${koala.notes}</td>
       <td>${koala.transfer}</td>
-      <td></td>
-      </tr>`)
+      <td>
+      <button class = "deleteBtn" data-id = ${koala.id}>Delete</button>
+    </td>
+     </tr>`)
     }
   }  
 
