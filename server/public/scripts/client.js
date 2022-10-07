@@ -50,12 +50,10 @@ function setupClickListeners() {
   $( '#addButton' ).on('click', function(){
     console.log( 'in addButton on click' );
     
-    if ($('#ageIn').val() != Number) { 
-      alert('please fill in all inputs');
-      return;
-    } else if (isNaN($('#ageIn').val()) || $('#ageIn').val() === ''||
+  if (isNaN($('#ageIn').val()) || $('#ageIn').val() === ''||
     $('#nameIn').val() === '' ||
     $('#notesIn').val() === '') {
+      alert('please fill in all inputs')
       return;
     }
     ;
