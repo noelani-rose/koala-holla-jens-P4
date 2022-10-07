@@ -45,8 +45,18 @@ function setupClickListeners() {
   $( 'body' ).on( 'click', '#transferY', function(){transfer = 'TRUE';});
   $( 'body' ).on( 'click', '#transferN', function(){transfer = 'FALSE';});
 
-  $( '#addButton' ).on( 'click', function(){
+
+  $( '#addButton' ).on('click', function(){
     console.log( 'in addButton on click' );
+    
+    if (isNaN($('#nameIn').val()) || $('#nameIn').val() === ''||
+        $('#ageIn').val() === '' ||
+        $('#notesIn').val() === ''
+    ) { 
+      alert('please fill in all inputs');
+      return;
+    } else if ($('#nameIn').val() != Number)
+    ;
     // get user input and put in an object
     // using a test object
 
@@ -114,8 +124,8 @@ function render(listOfKoalas){
   $('#viewKoalas').empty();
   for (let koala of listOfKoalas){
     if (koala.transfer == false){
-    console.log('rendering list of koalas...', koala);
-    console.log('the koala id is...', koala.id)
+    // console.log('rendering list of koalas...', koala);
+    // console.log('the koala id is...', koala.id)
     $('#viewKoalas').append(`
     <tr>
       <td>${koala.name}</td>
