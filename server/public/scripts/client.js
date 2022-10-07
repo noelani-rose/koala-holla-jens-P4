@@ -52,6 +52,7 @@ function setupClickListeners() {
   if (isNaN($('#ageIn').val()) || $('#ageIn').val() === ''||
     $('#nameIn').val() === '' ||
     $('#notesIn').val() === '') {
+      alert('please fill in all inputs')
       return;
     }
     ;
