@@ -1,4 +1,3 @@
-
 console.log( 'js' );
 
 $( document ).ready( function(){
@@ -21,7 +20,10 @@ let transfer = 'FALSE';
 
 function onTransfer(){
   let koalaID = $(this).data('id');
-  console.log('the id is...', koalaID)
+  console.log(koalaID);
+
+
+
   
   $.ajax({
     method: 'PUT',
