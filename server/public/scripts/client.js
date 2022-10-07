@@ -49,13 +49,12 @@ function setupClickListeners() {
   $( '#addButton' ).on('click', function(){
     console.log( 'in addButton on click' );
     
-    if (isNaN($('#nameIn').val()) || $('#nameIn').val() === ''||
-        $('#ageIn').val() === '' ||
-        $('#notesIn').val() === ''
-    ) { 
+    if ($('#ageIn').val() != Number) { 
       alert('please fill in all inputs');
       return;
-    } else if ($('#nameIn').val() != Number)
+    } else if (isNaN($('#ageIn').val()) || $('#ageIn').val() === ''||
+    $('#ageIn').val() === '' ||
+    $('#notesIn').val() === '')
     ;
     // get user input and put in an object
     // using a test object
